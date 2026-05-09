@@ -2,55 +2,55 @@
 # Version: 0.1.0
 
 # Web Framework & API
-fastapi==0.104.1
-uvicorn[standard]==0.24.0
-python-multipart==0.0.6
-pydantic==2.5.0
-pydantic-settings==2.1.0
+fastapi
+uvicorn[standard]
+python-multipart
+pydantic
+pydantic-settings
 
 # Async & Background Jobs
-celery==5.3.4
-redis==5.0.1
+celery
+redis
 
 # Database
-sqlalchemy==2.0.23
-alembic==1.13.0
-asyncpg==0.29.0
-psycopg2-binary==2.9.9
+sqlalchemy
+alembic
+asyncpg
+psycopg2-binary
 
 # Media Handling
-yt-dlp==2023.12.30
-instagrapi==2.0.0
-tweepy==4.14.0
-requests==2.31.0
-beautifulsoup4==4.12.2
-selenium==4.15.2
-python-telegram-bot==21.7
+yt-dlp
+instagrapi
+tweepy
+requests
+beautifulsoup4
+selenium
+python-telegram-bot
 
 # Security & Validation
-python-dotenv==1.0.0
-pyjwt>=2.8.1
-cryptography>=41.0.7
-python-jose[cryptography]>=3.3.0
+python-dotenv
+pyjwt
+cryptography
+python-jose[cryptography]
 
 # Logging & Monitoring
-python-json-logger==2.0.7
-prometheus-client==0.19.0
+python-json-logger
+prometheus-client
 
 # Development & Testing
-pytest==7.4.3
-pytest-asyncio==0.21.1
-pytest-cov==4.1.0
-black==23.12.0
-flake8==6.1.0
-mypy==1.7.1
+pytest
+pytest-asyncio
+pytest-cov
+black
+flake8
+mypy
 
 # Production Server
-gunicorn==21.2.0
+gunicorn
 
 # Optional: For video analysis
-pillow==10.1.0
-opencv-python==4.8.1.78
+pillow
+opencv-python
 
 # Optional: For virus scanning
 clamd
