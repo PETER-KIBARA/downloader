@@ -53,4 +53,4 @@ pillow==10.1.0
 opencv-python==4.8.1.78
 
 # Optional: For virus scanning
-clamd>=1.0.9
+clamd
