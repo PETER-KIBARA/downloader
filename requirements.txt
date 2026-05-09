@@ -1,0 +1,55 @@
+# Universal Media Downloader - Python Backend Requirements
+# Version: 0.1.0
+
+# Web Framework & API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Async & Background Jobs
+celery==5.3.4
+redis==5.0.1
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.13.0
+asyncpg==0.29.0
+psycopg2-binary==2.9.9
+
+# Media Handling
+yt-dlp==2023.12.30
+instagrapi==2.0.0
+tweepy==4.14.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+selenium==4.15.2
+
+# Security & Validation
+python-dotenv==1.0.0
+pyjwt==2.8.1
+cryptography==41.0.7
+python-jose[cryptography]==3.3.0
+
+# Logging & Monitoring
+python-json-logger==2.0.7
+prometheus-client==0.19.0
+
+# Development & Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+black==23.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Production Server
+gunicorn==21.2.0
+
+# Optional: For video analysis
+pillow==10.1.0
+opencv-python==4.8.1.78
+
+# Optional: For virus scanning
+clamd==1.0.9
