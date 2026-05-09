@@ -15,11 +15,11 @@ import asyncio
 
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, HttpUrl, validator
 import yt_dlp
 import redis
 from celery import Celery
-import postgres  # Using async postgres driver
 
 # ============================================================================
 # CONFIGURATION
@@ -429,11 +429,14 @@ async def health_check():
 async def http_exception_handler(request, exc):
     """Custom HTTP exception handler"""
     logger.error(f"HTTP Exception: {exc.detail}")
-    return {
-        "error": exc.detail,
-        "status_code": exc.status_code,
-        "timestamp": datetime.now().isoformat()
-    }
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "error": exc.detail,
+            "status_code": exc.status_code,
+            "timestamp": datetime.now().isoformat(),
+        },
+    )
 
 
 # ============================================================================
