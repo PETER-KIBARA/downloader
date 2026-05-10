@@ -19,6 +19,7 @@ asyncpg
 psycopg2-binary
 
 # Media Handling
+Flask
 yt-dlp
 instagrapi
 tweepy

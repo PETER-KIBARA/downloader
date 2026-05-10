@@ -3,10 +3,12 @@ import logging
 import os
 import re
 import uuid
+import threading
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
+from flask import Flask
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
@@ -19,6 +21,13 @@ logging.basicConfig(
     level=logging.INFO,
 )
 logger = logging.getLogger(__name__)
+
+flask_app = Flask(__name__)
+
+
+@flask_app.route("/")
+def root() -> str:
+    return "Bot alive"
 
 URL_PATTERN = re.compile(r"https?://\S+")
 ALLOWED_FORMATS = {"mp4", "mp3", "mov"}
@@ -265,5 +274,12 @@ async def main() -> None:
         await app.shutdown()
 
 
+def run_flask_server() -> None:
+    port = int(os.environ.get("PORT", 10000))
+    flask_app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
+
+
 if __name__ == "__main__":
+    flask_thread = threading.Thread(target=run_flask_server, daemon=True)
+    flask_thread.start()
     asyncio.run(main())
