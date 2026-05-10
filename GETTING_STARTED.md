@@ -232,6 +232,23 @@ docker-compose -f docker-compose.prod.yml up -d
 - **Heroku**: Buildpacks with Procfile
 - **DigitalOcean**: App Platform + Managed Databases
 
+### Render Deployment (No Timeout Setup)
+
+This repo includes `render.yaml` with two services:
+- `umd-api` (**Web Service**): FastAPI app, binds to `$PORT`, health check at `/api/health`
+- `umd-telegram-bot` (**Background Worker**): Telegram polling bot (`python telegram_bot.py`)
+
+Deploy steps:
+```bash
+# Push repo to GitHub, then create Blueprint on Render
+# Render will detect render.yaml automatically
+```
+
+Important rules:
+- Do **not** deploy `telegram_bot.py` as a Web Service.
+- Polling bots must run as **Background Workers**.
+- Web services must listen on `0.0.0.0:$PORT`.
+
 ---
 
 ## 🐛 Troubleshooting
